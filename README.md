@@ -3,10 +3,13 @@ Aplicación en Angular para gestionar una pequeña empresa de reparación de tel
 
 # Install
 Instalar MySQL 8
+
 usuario:
 root
+
 Password:
 $123Innpactia
+
 BDD:
 mobile_repair
 
