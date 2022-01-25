@@ -1,0 +1,68 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col lg="7" md="9" xl="6">
+        <c-card class="mx-4">
+          <c-card-body class="p-4">
+            <form cForm [formGroup]="FormRegister">
+              <h1>Registrar</h1>
+              <p class="text-medium-emphasis">Crear nuevo usuario</p>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input formControlName="user_firstname" autoComplete="name" cFormControl
+                  placeholder="Ingrese Nombres" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input formControlName="user_lastname" autoComplete="name" cFormControl
+                  placeholder="Ingrese Apellidos" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>@</span>
+                <input formControlName="user_nick" autoComplete="user_nick" cFormControl
+                  placeholder="Nombre de usuario" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input type="email" formControlName="user_email" autoComplete="email" cFormControl
+                  placeholder="Email" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input formControlName="user_pass" autoComplete="new-password" cFormControl placeholder="Password"
+                  type="password" />
+              </c-input-group>
+              <c-input-group class="mb-4">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input formControlName="confirm_password" autoComplete="new-password" cFormControl
+                  placeholder="Repetir password" type="password" />
+              </c-input-group>
+              <div *ngIf="!ValidatorPass">
+                <c-alert color="danger" variant="solid">Las contraseñas no coinciden!</c-alert>
+              </div>
+              <div class="d-grid">
+                <button (click)="SendDataToServer()" [disabled]="!ValidatorPass||_LoginService.DataLoading" cButton
+                  color="success">Create Account
+                  <mat-icon style="margin-left:10px" *ngIf="_LoginService.DataLoading">
+                    <mat-spinner diameter="20">
+                    </mat-spinner>
+                  </mat-icon>
+                </button>
+              </div>
+            </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

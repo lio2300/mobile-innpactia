@@ -1,0 +1,61 @@
+<form [formGroup]="FormClient" autocomplete="off" (submit)="SendDataToServer()">
+    <h2 mat-dialog-title>Agregar nuevo Cliente</h2>
+    <mat-dialog-content class="mat-typography">
+        <div fxLayout="Column" fxLayoutGap="20px">
+            <div fxLayout="row" fxLayoutGap="15px">
+                <mat-form-field appearance="standard" fxFlex="33">
+                    <mat-label>DNI</mat-label>
+                    <input matInput placeholder="Placeholder" required formControlName="client_dni">
+                    <mat-icon matSuffix>perm_phone_msg</mat-icon>
+                    <mat-hint>Ingrese DNI del cliente</mat-hint>
+                    <mat-error>Marca es requerido!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" fxFlex="33">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput placeholder="Placeholder" required formControlName="client_firstname">
+                    <mat-icon matSuffix>supervisor_account</mat-icon>
+                    <mat-hint>Ingrese los Nombres del cliente</mat-hint>
+                    <mat-error>Nombres es requerido!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" fxFlex="33">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput placeholder="Placeholder" required formControlName="client_lastname">
+                    <mat-icon matSuffix>supervised_user_circle</mat-icon>
+                    <mat-hint>Ingrese los Apellidos del cliente</mat-hint>
+                    <mat-error>Apellidos es requerido!</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="15px">
+
+                <mat-form-field appearance="standard" fxFlex="33">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="Placeholder" required formControlName="client_address">
+                    <mat-icon matSuffix>swap_horiz</mat-icon>
+                    <mat-hint>Ingrese la Dirección del cliente</mat-hint>
+                    <mat-error>Dirección es requerido!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" fxFlex="33">
+                    <mat-label>Número de referencia</mat-label>
+                    <input matInput placeholder="Placeholder" required formControlName="client_reference">
+                    <mat-icon matSuffix>contact_phone</mat-icon>
+                    <mat-hint>Ingrese el Número de referencia del cliente</mat-hint>
+                    <mat-error>Número de referencia es requerido!</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button cdkFocusInitial>
+            Aceptar
+            <mat-icon style="margin-left:10px" *ngIf="_ClientService.DataLoading">
+                <mat-spinner diameter="20">
+                </mat-spinner>
+            </mat-icon>
+        </button>
+    </mat-dialog-actions>
+</form>

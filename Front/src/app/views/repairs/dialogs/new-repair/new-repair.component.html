@@ -1,0 +1,53 @@
+<form [formGroup]="FormRepair" autocomplete="off" (submit)="SendDataToServer()">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <h2 mat-dialog-title>Agregar nuevo Cliente</h2>
+        <button mat-button>
+            Aceptar
+            <mat-icon style=" margin-left:10px" *ngIf="_RepairService.DataLoading">
+                <mat-spinner diameter="20">
+                </mat-spinner>
+            </mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content class="mat-typography">
+        <div fxLayout="Column" fxLayoutGap="20px">
+            <div fxLayout="row" fxLayoutGap="15px">
+                <mat-form-field appearance="standard" fxFlex="50">
+                    <mat-label>Fecha de ingreso</mat-label>
+                    <input matInput [matDatepicker]="picker" required formControlName="repair_ingr">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                    <mat-hint>Ingrese Fecha de ingreso</mat-hint>
+                    <mat-error>Fecha de ingreso es requerido!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" fxFlex="50">
+                    <mat-label>Fecha de salida</mat-label>
+                    <input matInput [matDatepicker]="picker2" required formControlName="repair_sali">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker2></mat-datepicker>
+                    <mat-hint>Ingrese Fecha de salida</mat-hint>
+                    <mat-error>Fecha de salida es requerido!</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="15px">
+                <mat-form-field appearance="standard" fxFlex="50">
+                    <mat-label>Descripón de ingreso</mat-label>
+                    <textarea matInput required formControlName="repair_desc_ingr"></textarea>
+                    <mat-icon matSuffix>supervisor_account</mat-icon>
+                    <mat-hint>Ingrese Descripón de ingreso</mat-hint>
+                    <mat-error>Descripón de ingreso es requerido!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard" fxFlex="50">
+                    <mat-label>Descripón de salida</mat-label>
+                    <textarea matInput required formControlName="repair_desc_sali"></textarea>
+                    <mat-icon matSuffix>supervisor_account</mat-icon>
+                    <mat-hint>Ingrese Descripón de salida</mat-hint>
+                    <mat-error>Descripón de salida es requerido!</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+</form>

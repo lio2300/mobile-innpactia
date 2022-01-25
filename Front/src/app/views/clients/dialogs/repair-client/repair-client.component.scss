@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+.custom-width {
+    width: 900px !important;
+}
+
+::ng-deep .mat-bottom-sheet-container-large {
+  min-width: 1000px;
+  max-width: calc(100vw - 256px);
+  padding: 20px;
+}
