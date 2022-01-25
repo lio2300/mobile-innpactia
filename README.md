@@ -16,3 +16,25 @@ mobile_repair
 Instalar Angular en su versión 13
 
 Instalar NodeJS en su versión estable.
+
+# Desplegar
+NODEJS
+
+Entre a la carpeta de Back y ejecute
+
+npm install
+
+Una vez finalizado ejecute el siguiente comando
+
+npm start
+
+ANGULARJS
+
+Entre a la carpeta Front y ejecute
+
+npm install
+
+Una vez finalizado ejecute el siguiente comando
+
+ng s
+
